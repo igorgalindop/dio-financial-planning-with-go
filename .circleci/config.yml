@@ -1,14 +1,26 @@
-version: 2
+version: 2.1
+
+orbs:
+  go: circleci/go@1.7.3
+
 jobs:
-  build:
+  build-and-test:
+   
     docker:
-      
-      - image: circleci/golang:1.21.1
+      - image: cimg/go:1.21.1
 
-    working_directory: /go/src/github.com/igorgalindop/dio-financial-planning-with-go
     steps:
+      # Checkout the code as the first step.
       - checkout
+      - go/load-cache # Load cached Go modules.
+      - go/mod-download # Run 'go mod download'.
+      - go/save-cache # Save Go modules to cache.
+      - go/test: # Runs 'go test ./...' but includes extensive parameterization for finer tuning.
+          covermode: atomic
+          failfast: true
+          race: true
 
-      # specify any bash command here prefixed with `run: `
-      - run: go get -v -t -d ./...
-      - run: go test -v ./...
+workflows:
+  sample:
+    jobs:
+      - build-and-test
