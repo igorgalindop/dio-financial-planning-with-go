@@ -9,7 +9,7 @@ jobs:
     docker:
       - image: cimg/go:1.21.1
 
-    working_directory: /go/src/github.com/igorgalindop/dio-financial-planning-with-go
+    working_directory: github.com/igorgalindop/dio-financial-planning-with-go
     steps:
       # Checkout the code as the first step.
       - checkout
