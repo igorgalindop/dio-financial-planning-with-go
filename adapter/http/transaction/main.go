@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/igorgalindop/dio-financial-planning-with-go/model/transaction"
+	"github.com/igorgalindop/dio-financial-planning-with-go/util"
 )
 
 func HandleTransactions(w http.ResponseWriter, r *http.Request) {
@@ -31,15 +31,12 @@ func HandleTransactions(w http.ResponseWriter, r *http.Request) {
 func getAllTransactions(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json")
 
-	var layout = "2006-01-02T15:04:05"
-	salaryReceived, _ := time.Parse(layout, "2023-11-19T20:00:35")
-
 	var transactions = transaction.Transactions{
 		transaction.Transaction{
 			Title:     "Salário",
 			Amount:    1250.0,
 			Type:      0,
-			CreatedAt: salaryReceived,
+			CreatedAt: util.StringToTime("2023-11-10T00:00:00"),
 		},
 	}
 
