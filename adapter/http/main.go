@@ -7,6 +7,7 @@ import (
 	"github.com/igorgalindop/dio-financial-planning-with-go/adapter/http/transaction"
 )
 
+// Init comment
 func Init() {
 	http.HandleFunc("/", transaction.HandleTransactions)
 

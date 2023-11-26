@@ -9,6 +9,7 @@ import (
 	"github.com/igorgalindop/dio-financial-planning-with-go/util"
 )
 
+// HandleTransactions comment
 func HandleTransactions(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" && r.Method != "POST" {
 		w.WriteHeader(http.StatusMethodNotAllowed)
