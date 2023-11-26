@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 
 orbs:
   go: circleci/go@1.7.3
@@ -7,9 +7,9 @@ jobs:
   build-and-test:
    
     docker:
-      - image: cimg/go:1.21.1
+      - image: circleci/golang:1.21.1
 
-    working_directory: github.com/igorgalindop/dio-financial-planning-with-go
+    working_directory: /go/src/github.com/igorgalindop/dio-financial-planning-with-go
     steps:
       # Checkout the code as the first step.
       - checkout
