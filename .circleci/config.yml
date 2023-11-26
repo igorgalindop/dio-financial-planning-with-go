@@ -7,7 +7,7 @@ jobs:
   build-and-test:
    
     docker:
-      - image: cimg/golang:1.21.1
+      - image: cimg/go:1.21.1
 
     working_directory: ~/github.com/igorgalindop/dio-financial-planning-with-go
     steps:
